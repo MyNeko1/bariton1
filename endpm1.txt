@@ -1,0 +1,794 @@
+{
+  "name": "TreeHarvester",
+  "priority": 1000,
+  "behavior": [
+    {
+      "type": "findBlock",
+      "block": "log oak",
+      "maxDistance": 20,
+      "onLost": "pause",
+      "onFound": [
+        {
+          "type": "mine",
+          "until": "hold",
+          "block": "log oak",
+          "collect": true,
+          "forceLook": true,
+          "onFinish": [
+            {
+              "type": "craft",
+              "recipe": [
+                {
+                  "type": "recipe",
+                  "output": "planks 4",
+                  "ingredients": [
+                    {
+                      "type": "item",
+                      "item": "log oak",
+                      "count": 1
+                    }
+                  ]
+                }
+              ],
+              "count": 4,
+              "onFinish": [
+                {
+                  "type": "craft",
+                  "recipe": [
+                    {
+                      "type": "recipe",
+                      "output": "stick 4",
+                      "ingredients": [
+                        {
+                          "type": "item",
+                          "item": "planks",
+                          "count": 2
+                        }
+                      ]
+                    }
+                  ],
+                  "count": 4,
+                  "onFinish": {
+                    "type": "deposit",
+                    "into": "any",
+                    "items": [
+                      {
+                        "type": "item",
+                        "item": "stick",
+                        "count": 4
+                      }
+                    ],
+                    "onFinish": {
+                      "type": "deposit",
+                      "into": "any",
+                      "items": [
+                        {
+                          "type": "item",
+                          "item": "log oak",
+                          "count": 64
+                        }
+                      ],
+                      "onFinish": {
+                        "type": "craft",
+                        "recipe": [
+                          {
+                            "type": "recipe",
+                            "output": "chest",
+                            "ingredients": [
+                              {
+                                "type": "item",
+                                "item": "planks",
+                                "count": 8
+                              }
+                            ]
+                          }
+                        ],
+                        "count": 1,
+                        "onFinish": {
+                          "type": "craft",
+                          "recipe": [
+                            {
+                              "type": "recipe",
+                              "output": "crafting_table",
+                              "ingredients": [
+                                {
+                                  "type": "item",
+                                  "item": "planks",
+                                  "count": 4
+                                }
+                              ]
+                            }
+                          ],
+                          "count": 1,
+                          "onFinish": {
+                            "type": "deposit",
+                            "into": "chest",
+                            "items": [
+                              {
+                                "type": "item",
+                                "item": "log oak",
+                                "count": 64
+                              }
+                            ],
+                            "onFinish": {
+                              "type": "deposit",
+                              "into": "chest",
+                              "items": [
+                                {
+                                  "type": "item",
+                                  "item": "stick",
+                                  "count": 4
+                                },
+                                {
+                                  "type": "item",
+                                  "item": "planks",
+                                  "count": 8
+                                },
+                                {
+                                  "type": "item",
+                                  "item": "crafting_table",
+                                  "count": 1
+                                },
+                                {
+                                  "type": "item",
+                                  "item": "chest",
+                                  "count": 1
+                                }
+                              ],
+                              "onFinish": [
+                                {
+                                  "type": "waitForNbt",
+                                  "block": "chest",
+                                  "nbt
+{
+  "task": {
+    "class": "com.matt.forgehax.asm.tasks.FindTreesTask",
+    "settings": {
+      "radius": 20,
+      "chop_tree": true,
+      "chop_wood": true,
+      "store_logs": true,
+      "store_planks": true,
+      "store_sticks": true,
+      "store_tools": true,
+      "store_saplings": true,
+      "store_apples": true,
+      "craft_tools": true,
+      "craft_workbench": true,
+      "place_workbench": true,
+      "store_workbench": true,
+      "store_chests": true,
+      "store_all_logs": true,
+      "store_all_planks": true,
+      "store_all_sticks": true,
+      "store_all_saplings": true,
+      "store_all_apples": true,
+      "store_all_tools": true,
+      "store_all_chests": true,
+      "store_all_workbenches": true,
+      "store_all_crafting_tables": true,
+      "expand_search_radius": true,
+      "expand_radius": 100,
+      "chase_mobs": true,
+      "flee_from_mobs": true,
+      "nbt_data": {
+        "Items": [
+          {
+            "Count": 1,
+            "Damage": 0,
+            "Name": "minecraft:oak_log",
+            "Slot": 0
+          },
+          {
+            "Count": 1,
+            "Damage": 0,
+            "Name": "minecraft:spruce_log",
+            "Slot": 1
+          },
+          {
+            "Count": 1,
+            "Damage": 0,
+            "Name": "minecraft:birch_log",
+            "Slot": 2
+          },
+          {
+            "Count": 1,
+            "Damage": 0,
+            "Name": "minecraft:jungle_log",
+            "Slot": 3
+          }
+        ]
+      }
+    }
+  }
+}
+
+"actions": [
+  {
+    "type": "findBlock",
+    "block": "log",
+    "maxDistance": 20
+  },
+  {
+    "type": "mineBlock",
+    "block": "log",
+    "maxDistance": 6,
+    "count": 4,
+    "collectTools": true,
+    "move": true
+  },
+  {
+    "type": "craft",
+    "recipe": "planks",
+    "count": 16
+  },
+  {
+    "type": "craft",
+    "recipe": "stick",
+    "count": 16
+  },
+  {
+    "type": "craft",
+    "recipe": "wooden_pickaxe",
+    "count": 1
+  },
+  {
+    "type": "craft",
+    "recipe": "wooden_axe",
+    "count": 1
+  },
+  {
+    "type": "craft",
+    "recipe": "wooden_shovel",
+    "count": 1
+  },
+  {
+    "type": "craft",
+    "recipe": "wooden_hoe",
+    "count": 1
+  },
+  {
+    "type": "openInventory"
+  },
+  {
+    "type": "waitForInventoryChange",
+    "tocks": 20
+  },
+  {
+    "type": "closeInventory"
+  },
+  {
+    "type": "findBlock",
+    "block": "stone",
+    "maxDistance": 20
+  },
+  {
+    "type": "mineBlock",
+    "block": "stone",
+    "maxDistance": 6,
+    "count": 4,
+    "collectTools": true,
+    "move": true
+  },
+  {
+    "type": "craft",
+    "recipe": "stone_pickaxe",
+    "count": 1
+  },
+  {
+    "type": "craft",
+    "recipe": "stone_axe",
+    "count": 1
+  },
+  {
+    "type": "craft",
+    "recipe": "stone_shovel",
+    "count": 1
+  },
+  {
+    "type": "craft",
+    "recipe": "stone_hoe",
+    "count": 1
+  },
+  {
+    "type": "findBlock",
+    "block": "cobblestone",
+    "maxDistance": 20
+  },
+  {
+    "type": "mineBlock",
+    "block": "cobblestone",
+    "maxDistance": 6,
+    "count": 4,
+    "collectTools": true,
+    "move": true
+  },
+  {
+    "type": "openInventory"
+  },
+  {
+    "type": "waitForInventoryChange",
+    "tocks": 20
+  },
+  {
+    "type": "closeInventory"
+  },
+  {
+    "type": "move",
+    "direction": "west",
+    "distance": 1
+  }
+]
+
+"actions": [
+  {
+    "type": "findBlock",
+    "block": "stone",
+    "maxDistance": 20
+  },
+  {
+    "type": "mineBlock",
+    "block": "stone",
+    "maxDistance": 6,
+    "count": 4,
+    "collectTools": true,
+    "move": true
+  },
+  {
+   
+{
+  "type": "conditional",
+  "condition": {
+    "type": "not",
+    "value": {
+      "type": "block",
+      "block": "minecraft:iron_ore",
+      "mode": "once"
+    }
+  },
+  "ifTrue": {
+    "type": "sequence",
+    "children": [
+      {
+        "type": "comment",
+        "text": "Going to mine iron"
+      },
+      {
+        "type": "goto",
+        "dest": "mine_iron"
+      }
+    ]
+  }
+}
+
+{
+  "id": "mine_iron",
+  "type": "parallel",
+  "children": [
+    {
+      "type": "until_success",
+      "child": {
+        "type": "sequence",
+        "children": [
+          {
+            "type": "comment",
+            "text": "Looking for iron ore"
+          },
+          {
+            "type": "find",
+            "blocks": [
+              "minecraft:iron_ore"
+            ],
+            "maxDistance": 64
+          },
+          {
+            "type": "goto",
+            "dest": "mine_iron"
+          }
+        ]
+      }
+    },
+    {
+      "type": "sequence",
+      "children": [
+        {
+          "type": "comment",
+          "text": "Mining iron ore"
+        },
+        {
+          "type": "repeat_until_success",
+          "times": 64,
+          "child": {
+            "type": "sequence",
+            "children": [
+              {
+                "type": "find",
+                "blocks": [
+                  "minecraft:iron_ore"
+                ],
+                "maxDistance": 5
+              },
+              {
+                "type": "mine",
+                "block": "minecraft:iron_ore",
+                "item": "minecraft:iron_ore"
+              },
+              {
+                "type": "wait",
+                "time": 1000
+              }
+            ]
+          }
+        },
+        {
+          "type": "comment",
+          "text": "Crafting iron tools"
+        },
+        {
+          "type": "craft",
+          "recipe": "minecraft:iron_pickaxe"
+        },
+        {
+          "type": "craft",
+          "recipe": "minecraft:iron_axe"
+        },
+        {
+          "type": "craft",
+          "recipe": "minecraft:iron_shovel"
+        },
+        {
+          "type": "craft",
+          "recipe": "minecraft:iron_hoe"
+        },
+        {
+          "type": "comment",
+          "text": "Storing extra items in chests"
+        },
+        {
+          "type": "store",
+          "block": "minecraft:chest",
+          "items": [
+            "minecraft:cobblestone",
+            "minecraft:dirt",
+            "minecraft:stone",
+            "minecraft:gravel"
+          ]
+        },
+        {
+          "type": "comment",
+          "text": "Going back to the spawn point"
+        },
+        {
+          "type": "goto",
+          "dest": "go_home"
+        }
+      ]
+    }
+  ]
+}
+
+{
+  "id": "go_home",
+  "type": "sequence",
+  "children": [
+    {
+      "type": "comment",
+      "text": "Going back to the spawn point"
+    },
+    {
+      "type": "find",
+      "blocks": [
+        "minecraft:bed",
+        "minecraft:respawn_anchor"
+      ],
+      "maxDistance": 64
+
+{
+  "id": "go_home",
+  "type": "sequence",
+  "children": [
+    {
+      "type": "comment",
+      "text": "Going back to the spawn point"
+    },
+    {
+      "type": "find",
+      "blocks": [
+        "minecraft:bed",
+        "minecraft:respawn_anchor"
+      ],
+      "maxDistance": 64
+
+goalNearby(CROP, 0, 0, 0, 20)
+
+// Проверяем, что у нас есть семена для посадки
+if (!inventoryContains("wheat_seeds")) {
+    // Если нет, идём искать пшеницу в радиусе 100 блоков
+    goalDig(WHEAT, 0, 0, 0, 100)
+    wait(3000)
+    // Если нашли, то начинаем добывать пшеницу и собирать семена
+    goalDig(WHEAT, 0, 0, 0, 20)
+    goalGet(SEEDS)
+}
+
+// Строим ферму
+build(x, y, z, FARM)
+
+// Садим семена на ферме
+goalPlace(FARM, "wheat_seeds", 0, 0, 0)
+wait(2000)
+
+// Ждём, пока пшеница вырастет
+waitUntil(() => entities.count(CROP) == 0, 10000)
+
+// Собираем урожай
+goalBreak(CROP, 0, 0, 0, 20)
+
+// Перемещаем урожай в сундук
+goalOpen(CHEST, "up")
+goalMoveTo(CHEST, 0, 1, 0)
+goalDrop(CHEST, WHEAT, 64)
+
+# Использовать все доступные предметы из инвентаря, в том числе еду
+useAndPossiblyEatAllItems
+
+# Крафт железных лоскутов
+craft('iron_ingot', 2, 'iron_nugget')
+craft('iron_nugget', 1, 'iron_ingot')
+
+# Крафт железной брони
+craft('iron_chestplate', 1, 'iron_ingot', 'iron_ingot', 'iron_ingot', 'iron_ingot')
+craft('iron_leggings', 1, 'iron_ingot', 'iron_ingot', 'iron_ingot', 'iron_ingot')
+craft('iron_boots', 1, 'iron_ingot', 'iron_ingot')
+
+# Переплавка железа
+while (count('iron_ore') > 0):
+    hold('iron_ore')
+    equip('stone_pickaxe')
+    mine('iron_ore')
+    smelt('iron_ore', 'iron_ingot')
+
+# Использование добытого угля для переплавки железа
+while (count('iron_ingot') > 0 and count('coal') > 0):
+    hold('iron_ingot')
+    equip('furnace')
+    place()
+    hold('coal')
+    use()
+
+# Крафт железных лоскутов
+craft('iron_ingot', 2, 'iron_nugget')
+craft('iron_nugget', 1, 'iron_ingot')
+
+# Крафт железной брони
+craft('iron_chestplate', 1, 'iron_ingot', 'iron_ingot', 'iron_ingot', 'iron_ingot')
+craft('iron_leggings', 1, 'iron_ingot', 'iron_ingot', 'iron_ingot', 'iron_ingot')
+craft('iron_boots', 1, 'iron_ingot', 'iron_ingot')
+
+# Переплавка железа
+while (count('iron_ore') > 0):
+    hold('iron_ore')
+    equip('stone_pickaxe')
+    mine('iron_ore')
+    smelt('iron_ore', 'iron_ingot')
+
+# Использование добытого угля для переплавки железа
+while (count('iron_ingot') > 0 and count('coal') > 0):
+    hold('iron_ingot')
+    equip('furnace')
+    place()
+    hold('coal')
+    use()
+
+{
+  "script": [
+    {
+      "find": {
+        "type": "ore",
+        "id": "minecraft:iron_ore"
+      },
+      "move": true,
+      "ignore_blocks": [
+        "minecraft:stone",
+        "minecraft:dirt"
+      ]
+    },
+    {
+      "attack": {
+        "entities": [
+          "minecraft:iron_golem",
+          "minecraft:pig",
+          "minecraft:sheep",
+          "minecraft:cow",
+          "minecraft:chicken"
+        ]
+      },
+      "attack_range": 4
+    },
+    {
+      "find": {
+        "type": "item",
+        "id": "minecraft:coal"
+      },
+      "move": true
+    },
+    {
+      "find": {
+        "type": "ore",
+        "id": "minecraft:gold_ore"
+      },
+      "move": true,
+      "ignore_blocks": [
+        "minecraft:stone",
+        "minecraft:dirt"
+      ]
+    },
+    {
+      "find": {
+        "type": "item",
+        "id": "minecraft:redstone"
+      },
+      "move": true
+    }
+  ]
+}
+
+# Проверяем, есть ли достаточное количество железных слитков и палок для крафта инструментов
+if (inventory.getCount("iron_ingot") >= 3 && inventory.getCount("stick") >= 2) {
+  # Скрафтить железную кирку и поместить в сундук
+  craft("iron_pickaxe", 1);
+  chest.deposit("iron_pickaxe", -1);
+  
+  # Скрафтить железную лопату и поместить в сундук
+  craft("iron_shovel", 1);
+  chest.deposit("iron_shovel", -1);
+  
+  # Скрафтить железный топор и поместить в сундук
+  craft("iron_axe", 1);
+  chest.deposit("iron_axe", -1);
+} else {
+  # Отправить бота на добычу железной руды и угля
+  mine("iron_ore");.
+  mine("coal_ore");
+  
+  # Переплавить железную руду в железо, используя уголь
+  smelt("iron_ore", "iron_ingot");
+  
+  # Повторить шаги 1-2
+}
+
+craft(iron_sword);
+
+while (true) {
+  attack(getNearestEntity(living));
+  waitTick(10);
+}
+
+mine("minecraft:diamond_ore", 256);
+wait(1000);
+
+{
+  "actions": [
+    {
+      "click": "CHANGE_HOTBAR_SLOT",
+      "slot": 1
+    },
+    {
+      "click": "MOVE_TO_HOTBAR",
+      "slot": 1,
+      "block": "diamond_block",
+      "range": 5
+    },
+    {
+      "click": "MOVE_TO_INVENTORY",
+      "slot": "crafting_table",
+      "block": "oak_log",
+      "range": 5
+    },
+    {
+      "click": "OPEN_CRAFTING_TABLE"
+    },
+    {
+      "click": "SET_CRAFTING_TABLE_INGREDIENT",
+      "slot": 1,
+      "item": "diamond"
+    },
+    {
+      "click": "SET_CRAFTING_TABLE_RESULT",
+      "slot": 1,
+      "item": "diamond_helmet"
+    },
+    {
+      "click": "CRAFT_RECIPE"
+    },
+    {
+      "click": "SET_CRAFTING_TABLE_INGREDIENT",
+      "slot": 1,
+      "item": "diamond"
+    },
+    {
+      "click": "SET_CRAFTING_TABLE_RESULT",
+      "slot": 1,
+      "item": "diamond_chestplate"
+    },
+    {
+      "click": "CRAFT_RECIPE"
+    },
+    {
+      "click": "SET_CRAFTING_TABLE_INGREDIENT",
+      "slot": 1,
+      "item": "diamond"
+    },
+    {
+      "click": "SET_CRAFTING_TABLE_RESULT",
+      "slot": 1,
+      "item": "diamond_leggings"
+    },
+    {
+      "click": "CRAFT_RECIPE"
+    },
+    {
+      "click": "SET_CRAFTING_TABLE_INGREDIENT",
+      "slot": 1,
+      "item": "diamond"
+    },
+    {
+      "click": "SET_CRAFTING_TABLE_RESULT",
+      "slot": 1,
+      "item": "diamond_boots"
+    },
+    {
+      "click": "CRAFT_RECIPE"
+    },
+    {
+      "click": "CLOSE_CRAFTING_TABLE"
+    },
+    {
+      "click": "MOVE_TO_INVENTORY",
+      "slot": "crafting_table"
+    },
+    {
+      "click": "OPEN_INVENTORY"
+    },
+    {
+      "click": "SET_HOTBAR_SLOT",
+      "slot": 1
+    },
+    {
+      "click": "SET_CRAFTING_TABLE_INGREDIENT",
+      "slot": 1,
+      "item": "diamond"
+    },
+    {
+      "click": "SET_CRAFTING_TABLE_INGREDIENT",
+      "slot": 2,
+      "item": "stick"
+    },
+    {
+      "click": "SET_CRAFTING_TABLE_RESULT",
+      "slot": 1,
+      "item": "diamond_sword"
+    },
+    {
+      "click": "CRAFT_RECIPE"
+    },
+    {
+      "click": "SET_CRAFTING_TABLE_INGREDIENT",
+      "slot": 1,
+      "item": "diamond"
+    },
+    {
+      "click": "SET_CRAFTING_TABLE_INGREDIENT",
+      "slot": 2,
+      "item": "stick"
+    },
+    {
+      "click": "SET_CRAFTING_TABLE_RESULT",
+      "slot": 1,
+      "item": "diamond_pickaxe"
+    },
+    {
+      "click": "CRAFT_RECIPE"
+    },
+    {
+      "click": "SET_CRAFTING_TABLE_INGREDIENT",
